@@ -1,22 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useAppSelector } from '../redux/hooks';
 
 interface CategoriesProps {
   items: string[];
-  onClickItem: (name: string) => void;
+  onClickItem: (name: number) => void;
 }
 
-interface stateCategories {
-  activeItem: null | number;
-}
-
-export const Categories: React.FC<CategoriesProps> = ({ items, onClickItem }) => {
-  const [state, setState] = useState<stateCategories>({
-    activeItem: null,
-  });
-
-  const onSelectItem = (index: number) => {
-    setState({ activeItem: index });
-  };
+export const Categories: React.FC<CategoriesProps> = React.memo(({ items, onClickItem }) => {
+  const activeItem = useAppSelector((state) => state.rootReducer.filters.category);
 
   return (
     <div className="categories">
@@ -24,15 +15,15 @@ export const Categories: React.FC<CategoriesProps> = ({ items, onClickItem }) =>
         {items &&
           items.map((name, index) => (
             <li
-              className={state.activeItem === index ? 'active' : ''}
+              className={activeItem === index ? 'active' : ''}
               key={name}
-              onClick={() => onSelectItem(index)}>
+              onClick={() => onClickItem(index)}>
               {name}
             </li>
           ))}
       </ul>
     </div>
   );
-};
+});
 
 export default Categories;

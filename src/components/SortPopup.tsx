@@ -1,17 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 interface SortPopupProps {
-  items: string[];
+  items: { name: string; type: string }[];
 }
 
-interface stateCategories {
-  activeItem: null | number;
-}
-
-export const SortPoup: React.FC<SortPopupProps> = ({ items }) => {
+export const SortPoup: React.FC<SortPopupProps> = React.memo(({ items }) => {
   const [visiblePopup, setVisiblePopup] = useState<boolean>(false);
   const sortElem = useRef<HTMLDivElement>(null);
-  const [activeItem, setActiveItem] = useState<string>('популярности');
+  const [activeItem, setActiveItem] = useState<number>(0);
+  const activeLabel = items[activeItem].name;
 
   const toggleVisiblePopup = () => {
     setVisiblePopup(!visiblePopup);
@@ -27,12 +24,9 @@ export const SortPoup: React.FC<SortPopupProps> = ({ items }) => {
     document.body.addEventListener('click', handleOutClick);
   }, []);
 
-  const [state, setState] = useState<stateCategories>({
-    activeItem: null,
-  });
-
   const onSelectItem = (index: number) => {
-    setState({ activeItem: index });
+    setActiveItem(index);
+    setVisiblePopup(false);
   };
 
   return (
@@ -51,22 +45,20 @@ export const SortPoup: React.FC<SortPopupProps> = ({ items }) => {
           />
         </svg>
         <b>Сортировка по:</b>
-        <span onClick={toggleVisiblePopup}>{activeItem}</span>
+        <span onClick={toggleVisiblePopup}>{activeLabel}</span>
       </div>
       {visiblePopup && (
         <div className="sort__popup">
           <ul>
             {items &&
-              items.map((name, index) => (
+              items.map((obj, index) => (
                 <li
-                  className={state.activeItem === index ? 'active' : ''}
-                  key={name}
+                  className={activeItem === index ? 'active' : ''}
+                  key={`${index}_${obj.type}`}
                   onClick={() => {
                     onSelectItem(index);
-                    setActiveItem(name);
-                    console.log(name);
                   }}>
-                  {name}
+                  {obj.name}
                 </li>
               ))}
           </ul>
@@ -74,4 +66,4 @@ export const SortPoup: React.FC<SortPopupProps> = ({ items }) => {
       )}
     </div>
   );
-};
+});

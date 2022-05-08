@@ -1,0 +1,104 @@
+{
+  "shoes": [
+    {
+      "id": 0,
+      "imageUrl": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/04993055-6221-4a74-8ff2-bd37b481c057/zoom-alphafly-next-nature-road-racing-shoe-3mk9g2.png",
+      "name": "nike",
+      "types": [0, 1],
+      "sizes": [26, 30, 40],
+      "price": 803,
+      "category": 0,
+      "rating": 4
+    },
+    {
+      "id": 1,
+      "imageUrl": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/04993055-6221-4a74-8ff2-bd37b481c057/zoom-alphafly-next-nature-road-racing-shoe-3mk9g2.png",
+      "name": "nike",
+      "types": [0],
+      "sizes": [26, 40],
+      "price": 245,
+      "category": 1,
+      "rating": 6
+    },
+    {
+      "id": 2,
+      "imageUrl": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/04993055-6221-4a74-8ff2-bd37b481c057/zoom-alphafly-next-nature-road-racing-shoe-3mk9g2.png",
+      "name": "nike",
+      "types": [0],
+      "sizes": [26, 40],
+      "price": 295,
+      "category": 1,
+      "rating": 4
+    },
+    {
+      "id": 3,
+      "imageUrl": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/7d58d5de-0313-42d0-a9a0-ed57fea81930/air-force-1-crater-flyknit-next-nature-shoes-qHncTB.png",
+      "name": "nike",
+      "types": [1],
+      "sizes": [26, 30, 40],
+      "price": 275,
+      "category": 2,
+      "rating": 2
+    },
+    {
+      "id": 4,
+      "imageUrl": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/7d58d5de-0313-42d0-a9a0-ed57fea81930/air-force-1-crater-flyknit-next-nature-shoes-qHncTB.png",
+      "name": "nike",
+      "types": [0, 1],
+      "sizes": [26, 30, 40],
+      "price": 415,
+      "category": 3,
+      "rating": 8
+    },
+    {
+      "id": 5,
+      "imageUrl": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/69c17dfe-9b00-43c6-8dc8-7cc974c94524/air-max-terrascape-90-shoes-7KCxlX.png",
+      "name": "nike",
+      "types": [0],
+      "sizes": [30, 40],
+      "price": 580,
+      "category": 2,
+      "rating": 2
+    },
+    {
+      "id": 6,
+      "imageUrl": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/27455351-5994-4764-af37-8d25aa5e26ad/air-max-95-shoes-FjSCcc.png",
+      "name": "nike",
+      "types": [0, 1],
+      "sizes": [26, 30, 40],
+      "price": 675,
+      "category": 1,
+      "rating": 9
+    },
+    {
+      "id": 7,
+      "imageUrl": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/00bd2b44-2fa2-40ef-a19a-6d884c26c2f9/air-vapormax-2021-fk-se-shoes-1S42dm.png",
+      "name": "nike",
+      "types": [0, 1],
+      "sizes": [26, 30, 40],
+      "price": 450,
+      "category": 4,
+      "rating": 10
+    },
+    {
+      "id": 8,
+      "imageUrl": "https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/a4bb4b42-92f8-40a2-8a43-f939bffb76da/air-max-95-ironstone-dr0146-001-release-date.jpg",
+      "name": "nike",
+      "types": [0, 1],
+      "sizes": [26, 30, 40],
+      "price": 395,
+      "category": 5,
+      "rating": 10
+    },
+    {
+      "id": 9,
+      "imageUrl": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/fb7eda3c-5ac8-4d05-a18f-1c2c5e82e36e/blazer-mid-77-vintage-shoe-3x983t.png",
+      "name": "nike",
+      "types": [0, 1],
+      "sizes": [26, 30, 40],
+      "price": 285,
+      "category": 5,
+      "rating": 7
+    }
+  ]
+}
