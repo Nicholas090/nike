@@ -1,9 +1,12 @@
-import { itemsInterface } from '../../interfaces';
-import { setCategory, setShoes, setSortBy } from './actions';
+import axios from 'axios';
+import { Action, ActionCreator, Dispatch } from 'redux';
 
-export const setSortByAction = (name: any) => ({
+import { itemsInterface } from '../../interfaces';
+import { setCategory, setShoes, setSortBy, SET_LOADED } from './actions';
+
+export const setSortByAction = ({ type, order }: any) => ({
   type: setSortBy,
-  payload: name,
+  payload: { type, order },
 });
 
 export const setCategoryAction = (items: any) => ({
@@ -16,4 +19,21 @@ export const setShoesActions = (items: itemsInterface[]) => ({
   payload: items,
 });
 
-export const fetchShoes = () => ({});
+export const fetchShoes = (sortBy: any, category: number) => (dispatch: Dispatch) => {
+  dispatch(setLoaded(false));
+
+  axios
+    .get(
+      `http://localhost:3001/shoes?${category !== null ? `category=${category}` : ''}&_order=${
+        sortBy.type
+      }&_order=${sortBy.order}`,
+    )
+    .then(({ data }) => {
+      dispatch(setShoesActions(data));
+    });
+};
+
+export const setLoaded = (payload: boolean) => ({
+  type: SET_LOADED,
+  payload: payload,
+});

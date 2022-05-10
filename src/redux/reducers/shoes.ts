@@ -1,5 +1,5 @@
 import { itemsInterface } from '../../interfaces';
-import { setShoes } from '../actions/actions';
+import { setShoes, SET_LOADED } from '../actions/actions';
 
 interface userState {
   items: itemsInterface[];
@@ -24,6 +24,12 @@ export const shoes = (state: userState = initialState, action: actionsI) => {
       return {
         ...state,
         items: action.payload,
+        isLoaded: true,
+      };
+    case SET_LOADED:
+      return {
+        ...state,
+        isLoaded: action.payload,
       };
     default:
       return state;

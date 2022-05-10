@@ -1,8 +1,14 @@
 import { setCategory, setSortBy } from '../actions/actions';
 
+type OrderType = 'asc' | 'desc';
+type SortByI = {
+  type: string;
+  order: OrderType;
+};
+
 interface userState {
-  category: number;
-  sortBy: string;
+  category: number | null;
+  sortBy: SortByI;
   error: null | string;
 }
 
@@ -12,8 +18,11 @@ interface actionsI {
 }
 
 const initialState: userState = {
-  category: 0,
-  sortBy: 'popular',
+  category: null,
+  sortBy: {
+    type: 'popular',
+    order: 'desc',
+  },
   error: null,
 };
 

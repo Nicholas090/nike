@@ -3,5 +3,6 @@ import { Header } from './Header';
 import Categories from './Categories';
 import { SortPoup } from './SortPopup';
 import { ShoesBlock } from './ShoesBlock';
+import ContentWaiting from './ContentWaiting';
 
-export { Button, Header, Categories, SortPoup, ShoesBlock };
+export { ContentWaiting, Button, Header, Categories, SortPoup, ShoesBlock };

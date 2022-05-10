@@ -1,11 +1,11 @@
 import React from 'react';
 import { itemsInterface } from '../interfaces';
-
 interface ShoesBlockProps {
   item: itemsInterface;
 }
 export const ShoesBlock: React.FC<ShoesBlockProps> = ({ item }) => {
   const { imageUrl, name, price } = item;
+
   return (
     <div className="pizza-block">
       <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
