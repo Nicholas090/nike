@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { Action, ActionCreator, Dispatch } from 'redux';
+import { Dispatch } from 'redux';
 
 import { itemsInterface } from '../../interfaces';
-import { setCategory, setShoes, setSortBy, SET_LOADED } from './actions';
+import { ADD_SHOES_CART, setCategory, setShoes, setSortBy, SET_LOADED } from './actions';
 
 export const setSortByAction = ({ type, order }: any) => ({
   type: setSortBy,
@@ -36,4 +36,9 @@ export const fetchShoes = (sortBy: any, category: number) => (dispatch: Dispatch
 export const setLoaded = (payload: boolean) => ({
   type: SET_LOADED,
   payload: payload,
+});
+
+export const addShoesToCartActions = (shoesObj: any) => ({
+  type: ADD_SHOES_CART,
+  payload: shoesObj,
 });

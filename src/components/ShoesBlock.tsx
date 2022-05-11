@@ -1,18 +1,30 @@
 import React from 'react';
 import { itemsInterface } from '../interfaces';
+import { Button } from './Button';
 interface ShoesBlockProps {
   item: itemsInterface;
+  onClickAddCart: any;
 }
-export const ShoesBlock: React.FC<ShoesBlockProps> = ({ item }) => {
-  const { imageUrl, name, price } = item;
+export const ShoesBlock: React.FC<ShoesBlockProps> = ({ item, onClickAddCart }) => {
+  const { imageUrl, name, price, id } = item;
 
+  const handleAddCart = () => {
+    const obj = {
+      id,
+      name,
+      imageUrl,
+      price,
+    };
+
+    onClickAddCart(obj);
+  };
   return (
     <div className="pizza-block">
       <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
       <h4 className="pizza-block__title">{name}</h4>
       <div className="pizza-block__bottom">
         <div className="pizza-block__price">Price: {price}$</div>
-        <div className="button button--outline button--add">
+        <Button outline className="button--add" onClick={handleAddCart}>
           <svg
             width="12"
             height="12"
@@ -26,7 +38,7 @@ export const ShoesBlock: React.FC<ShoesBlockProps> = ({ item }) => {
           </svg>
           <span>Добавить</span>
           <i>2</i>
-        </div>
+        </Button>
       </div>
     </div>
   );

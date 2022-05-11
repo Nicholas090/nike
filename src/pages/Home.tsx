@@ -2,7 +2,11 @@
 import React, { useCallback, useEffect } from 'react';
 import { Categories, ContentWaiting, ShoesBlock, SortPoup } from '../components/index';
 import { itemsInterface } from '../interfaces';
-import { setCategoryAction, setSortByAction } from '../redux/actions/actionCreater';
+import {
+  addShoesToCartActions,
+  setCategoryAction,
+  setSortByAction,
+} from '../redux/actions/actionCreater';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { fetchShoes } from '../redux/actions/actionCreater';
 
@@ -27,6 +31,9 @@ const Home: React.FC = () => {
     dispatch(setSortByAction(type));
   }, []);
 
+  const onClickaddShoesToCart = (obj: any) => {
+    dispatch(addShoesToCartActions(obj));
+  };
   return (
     <div className="container">
       <div className="content__top">
@@ -48,8 +55,10 @@ const Home: React.FC = () => {
       <h2 className="content__title">Все кроссовки</h2>
       <div className="content__items">
         {isLoaded
-          ? items.map((obj) => <ShoesBlock key={obj.id} item={obj} />)
-          : Array(3)
+          ? items.map((obj) => (
+              <ShoesBlock key={obj.id} item={obj} onClickAddCart={onClickaddShoesToCart} />
+            ))
+          : Array(12)
               .fill(0)
               .map((_, index) => <ContentWaiting key={index} />)}
       </div>

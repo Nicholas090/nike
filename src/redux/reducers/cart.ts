@@ -1,9 +1,9 @@
-import { setSortBy } from '../actions/actions';
+import { ADD_SHOES_CART, SET_TOTAL_COUNT, SET_TOTAL_PRICE } from '../actions/actions';
 
 interface userState {
-  category: number;
-  sortBy: string;
-  error: null | string;
+  items: any;
+  totalPrice: number;
+  totalCount: number;
 }
 
 interface actionsI {
@@ -12,17 +12,31 @@ interface actionsI {
 }
 
 const initialState: userState = {
-  category: 0,
-  sortBy: 'popular',
-  error: null,
+  items: [],
+  totalPrice: 0,
+  totalCount: 0,
 };
 
 export const cart = (state: userState = initialState, action: actionsI) => {
   switch (action.type) {
-    case setSortBy:
+    case SET_TOTAL_PRICE:
       return {
         ...state,
-        sortBy: action.payload,
+        totalPrice: action.payload,
+      };
+    case SET_TOTAL_COUNT:
+      return {
+        ...state,
+        totalCount: action.payload,
+      };
+    case ADD_SHOES_CART:
+      return {
+        ...state,
+        items: {
+          [action.payload.id]: !state.items[action.payload.id]
+            ? []
+            : [...state.items[(action.payload, action.payload)]],
+        },
       };
     default:
       return state;

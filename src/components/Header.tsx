@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAppSelector } from '../redux/hooks';
 import { Button } from './Button';
 
 export const Header: React.FC = () => {
   const clickButton = () => {
     console.log('Pressed Cart');
   };
+
+  const { totalCount, totalPrice } = useAppSelector((state) => state.rootReducer.cart);
 
   return (
     <div className="header">
@@ -21,7 +24,7 @@ export const Header: React.FC = () => {
         <div className="header__cart">
           <Link to="/cart">
             <Button onClick={clickButton} className={'button--cart'}>
-              <span>520 ₽</span>
+              <span>{totalPrice}</span>
               <div className="button__delimiter"></div>
               <svg
                 width="18"
@@ -51,7 +54,7 @@ export const Header: React.FC = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-              <span>3</span>
+              <span>{totalCount}</span>
             </Button>
           </Link>
         </div>
